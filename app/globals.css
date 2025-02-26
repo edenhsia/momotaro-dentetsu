@@ -2,20 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-[#e0e0e0] font-sans;
+}
+
+.btn-home {
+  @apply bg-background px-4 py-2 rounded-xl border-[3px] text-center font-bold text-xl w-full max-w-80 shadow-lg;
+  @apply transition-colors hover:text-background hover:border-background md:max-w-none;
 }
