@@ -17,26 +17,26 @@ export default function Home() {
 
         <menu className="grid grid-cols-1 gap-y-4 justify-items-center md:grid-cols-4 md:gap-x-4">
           <Link
-            href="/"
-            className="btn-home border-primary text-primary hover:bg-primary"
+            href="/cards"
+            className="btn-home bg-blue border-blue-dark hover:bg-blue-dark"
           >
             卡片
           </Link>
           <Link
             href="/"
-            className="btn-home border-blue text-blue hover:bg-blue"
+            className="btn-home bg-red border-red-dark hover:bg-red-dark"
           >
             英雄
           </Link>
           <Link
             href="/"
-            className="btn-home border-yellow text-yellow hover:bg-yellow"
+            className="btn-home bg-yellow border-yellow-dark hover:bg-yellow-dark"
           >
             車站
           </Link>
           <Link
             href="/"
-            className="btn-home border-green text-green hover:bg-green"
+            className="btn-home bg-green border-green-dark hover:bg-green-dark"
           >
             集點
           </Link>

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#e0e0e0] font-sans;
+  @apply bg-background font-sans;
 }
 
 .btn-home {
-  @apply bg-background px-4 py-2 rounded-xl border-[3px] text-center font-bold text-xl w-full max-w-80 shadow-lg;
-  @apply transition-colors hover:text-background hover:border-background md:max-w-none;
+  @apply px-4 py-2 rounded-xl border-[3px] text-center font-bold text-xl w-full max-w-80 shadow-lg text-white;
+  @apply transition-colors md:max-w-none;
 }

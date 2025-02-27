@@ -12,11 +12,27 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#e9207e',
         background: '#fff5e1',
-        blue: '#0d70fa',
-        yellow: '#ffb300',
-        green: '#1abd38',
+        primary: {
+          DEFAULT: '#e9207e',
+          dark: '#c31c6f',
+        },
+        blue: {
+          DEFAULT: '#0062fa',
+          dark: '#1c3296',
+        },
+        red: {
+          DEFAULT: '#ec3945',
+          dark: '#851632',
+        },
+        yellow: {
+          DEFAULT: '#e8a83a',
+          dark: '#8e5630',
+        },
+        green: {
+          DEFAULT: '#6aa52d',
+          dark: '#34551f',
+        },
       },
     },
   },
