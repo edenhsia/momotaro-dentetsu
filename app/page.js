@@ -10,6 +10,9 @@ export default function Home() {
         </div>
         <h1 className="text-center text-4xl text-primary font-black mb-6 md:text-6xl md:mb-10">
           桃太郎電鐵
+          <small className="text-xl block md:text-2xl">
+            昭和平成令和也是定番！
+          </small>
         </h1>
 
         <menu className="grid grid-cols-1 gap-y-4 justify-items-center md:grid-cols-4 md:gap-x-4">
