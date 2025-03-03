@@ -10,3 +10,13 @@ body {
   @apply px-4 py-2 rounded-xl border-[3px] text-center font-bold text-xl w-full max-w-80 shadow-lg text-white;
   @apply transition-colors md:max-w-none;
 }
+
+.page-title {
+  @apply px-4 py-2 inline-flex justify-start bg-background-dark rounded border-2 border-background-darker;
+  @apply md:px-6 md:py-3 md:border-[3px];
+
+  span {
+    @apply font-bold text-2xl text-gray bg-background rounded shadow-[0_2px_0_rgba(0,0,0,0.25)] px-4 py-1;
+    @apply md:text-4xl md:px-6 md:py-2;
+  }
+}
