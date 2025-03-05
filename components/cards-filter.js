@@ -1,6 +1,11 @@
+'use client'
+
+import { useRef } from 'react'
 import { CARD_CATEGORIES, CARD_CATEGORIES_LABEL } from '@/libs/enum'
 
 export default function CardsFilter({ onFilter }) {
+  const inputName = useRef()
+
   function handleFilter(e) {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
@@ -8,10 +13,25 @@ export default function CardsFilter({ onFilter }) {
     onFilter(filter)
   }
 
+  function handleCategoryClick(e) {
+    const filterCategory = e.target.value
+
+    if (filterCategory) {
+      const filter = { name: inputName.current.value, category: filterCategory }
+      onFilter(filter)
+    }
+  }
+
   return (
     <form className="mb-5" onSubmit={handleFilter}>
       <label className="input input-bordered flex items-center gap-2 focus-within:outline-primary mb-2">
-        <input type="text" name="name" className="grow" placeholder="Search" />
+        <input
+          ref={inputName}
+          type="text"
+          name="name"
+          className="grow"
+          placeholder="Search"
+        />
         <button className="btn btn-sm bg-primary text-white hover:text-white hover:bg-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,6 +53,7 @@ export default function CardsFilter({ onFilter }) {
             <label
               key={value}
               className="label cursor-pointer justify-start py-1 mr-2"
+              onClick={handleCategoryClick}
             >
               <input
                 type="radio"
