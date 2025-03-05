@@ -4,9 +4,11 @@ import Cards from '@/components/cards'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
 import PageTitle from '@/components/page-title'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import Modal from '@/components/modal'
+import CardsFilter from '@/components/cards-filter'
+import { CARD_CATEGORIES } from '@/libs/enum'
 
 async function fetchCardsData() {
   const response = await fetch(
@@ -25,7 +27,14 @@ export default function CardsPage() {
     errorRetryCount: 3,
   })
 
+  const [cards, setCards] = useState([])
   const [cardInfo, setCardInfo] = useState()
+
+  useEffect(() => {
+    if (data) {
+      setCards(data)
+    }
+  }, [data])
 
   function showCardInfo(id) {
     if (!data) return
@@ -48,13 +57,66 @@ export default function CardsPage() {
   } else if (!data) {
     content = <Loading />
   } else {
-    content = <Cards items={data} onCardClick={showCardInfo} />
+    content = <Cards items={cards} onCardClick={showCardInfo} />
+  }
+
+  function handleFilter(filter) {
+    // const filterName = filter.name.trim()
+    // const filterCategory = filter.category
+
+    // let filteredData
+
+    // if (!filterName && filterCategory === CARD_CATEGORIES.ALL) {
+    //   console.log(filterName)
+    //   setCards(data)
+    //   console.log('filter')
+    //   return
+    // }
+
+    // if (!filterName) {
+    //   filteredData = data.filter((item) => item.category === filterCategory)
+    //   setCards(filteredData)
+    //   return
+    // }
+
+    // if (filterCategory === CARD_CATEGORIES.ALL) {
+    //   filteredData = filteredData = data.filter((item) =>
+    //     item.name.includes(filterName)
+    //   )
+    // } else {
+    //   filteredData = data.filter(
+    //     (item) =>
+    //       item.category === filterCategory && item.name.includes(filterName)
+    //   )
+    // }
+
+    // setCards(filteredData)
+    const { name: filterNameRaw, category: filterCategory } = filter
+    const filterName = filterNameRaw.trim()
+
+    // 不篩選時，直接回復原始數據
+    if (!filterName && filterCategory === CARD_CATEGORIES.ALL) {
+      setCards(data)
+      return
+    }
+
+    // 依條件篩選
+    const filteredData = data.filter((item) => {
+      const matchName = !filterName || item.name.includes(filterName)
+      const matchCategory =
+        filterCategory === CARD_CATEGORIES.ALL ||
+        item.category === filterCategory
+      return matchName && matchCategory
+    })
+
+    setCards(filteredData)
   }
 
   return (
     <main className="py-12">
       <div className="container">
         <PageTitle title="卡片" className="mb-3" />
+        <CardsFilter onFilter={handleFilter} />
         {content}
       </div>
       {cardInfo && <Modal info={cardInfo} onClose={closeCardInfo} />}

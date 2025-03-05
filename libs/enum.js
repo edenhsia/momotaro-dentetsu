@@ -1,4 +1,5 @@
 export const CARD_CATEGORIES = {
+  ALL: 'ALL',
   ATTACK: 'ATTACK',
   DEFENSE: 'DEFENSE',
   SPECIAL: 'SPECIAL',
@@ -7,6 +8,7 @@ export const CARD_CATEGORIES = {
 }
 
 export const CARD_CATEGORIES_LABEL = {
+  [CARD_CATEGORIES.ALL]: '全部',
   [CARD_CATEGORIES.ATTACK]: '攻擊',
   [CARD_CATEGORIES.DEFENSE]: '防禦',
   [CARD_CATEGORIES.SPECIAL]: '特殊',

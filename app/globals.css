@@ -21,3 +21,7 @@ body {
     @apply md:text-4xl md:px-6 md:py-2;
   }
 }
+
+.radio {
+  @apply bg-white w-5 h-5 mr-2;
+}
