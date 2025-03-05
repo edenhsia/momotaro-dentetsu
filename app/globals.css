@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
-  @apply bg-background font-sans;
+  @apply bg-background font-sans h-full text-gray;
 }
 
 .btn-home {
@@ -12,8 +13,8 @@ body {
 }
 
 .page-title {
-  @apply px-4 py-2 inline-flex justify-start bg-background-dark rounded border-2 border-background-darker;
-  @apply md:px-6 md:py-3 md:border-[3px];
+  @apply px-4 py-2 inline-flex justify-start bg-background-dark rounded border-2 border-background-darker mb-5;
+  @apply md:px-6 md:py-3 md:border-[3px] md:mb-7;
 
   span {
     @apply font-bold text-2xl text-gray bg-background rounded shadow-[0_2px_0_rgba(0,0,0,0.25)] px-4 py-1;

@@ -37,11 +37,17 @@ export default {
           DEFAULT: '#6aa52d',
           dark: '#34551f',
         },
+        purple: {
+          DEFAULT: '#7851a9',
+        },
         gray: {
           DEFAULT: '#57534e',
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    themes: ['light'],
+  },
 }
