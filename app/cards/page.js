@@ -61,46 +61,14 @@ export default function CardsPage() {
   }
 
   function handleFilter(filter) {
-    // const filterName = filter.name.trim()
-    // const filterCategory = filter.category
-
-    // let filteredData
-
-    // if (!filterName && filterCategory === CARD_CATEGORIES.ALL) {
-    //   console.log(filterName)
-    //   setCards(data)
-    //   console.log('filter')
-    //   return
-    // }
-
-    // if (!filterName) {
-    //   filteredData = data.filter((item) => item.category === filterCategory)
-    //   setCards(filteredData)
-    //   return
-    // }
-
-    // if (filterCategory === CARD_CATEGORIES.ALL) {
-    //   filteredData = filteredData = data.filter((item) =>
-    //     item.name.includes(filterName)
-    //   )
-    // } else {
-    //   filteredData = data.filter(
-    //     (item) =>
-    //       item.category === filterCategory && item.name.includes(filterName)
-    //   )
-    // }
-
-    // setCards(filteredData)
     const { name: filterNameRaw, category: filterCategory } = filter
     const filterName = filterNameRaw.trim()
 
-    // 不篩選時，直接回復原始數據
     if (!filterName && filterCategory === CARD_CATEGORIES.ALL) {
       setCards(data)
       return
     }
 
-    // 依條件篩選
     const filteredData = data.filter((item) => {
       const matchName = !filterName || item.name.includes(filterName)
       const matchCategory =
@@ -115,7 +83,7 @@ export default function CardsPage() {
   return (
     <main className="py-12">
       <div className="container">
-        <PageTitle title="卡片" className="mb-3" />
+        <PageTitle title="卡片" />
         <CardsFilter onFilter={handleFilter} />
         {content}
       </div>
