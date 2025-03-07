@@ -61,7 +61,7 @@ export default function CardsPage() {
   }
 
   function handleFilter(filter) {
-    const { name: filterNameRaw, category: filterCategory } = filter
+    const { keyword: filterNameRaw, category: filterCategory } = filter
     const filterName = filterNameRaw.trim()
 
     if (!filterName && filterCategory === CARD_CATEGORIES.ALL) {
