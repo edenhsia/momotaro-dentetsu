@@ -1,7 +1,5 @@
 'use client'
 
-import { useImperativeHandle, useRef } from 'react'
-
 export default function SearchBar({ ref, placeholder }) {
   return (
     <label className="input input-bordered flex items-center gap-2 focus-within:outline-primary mb-2">

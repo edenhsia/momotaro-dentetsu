@@ -23,7 +23,7 @@ export default function Home() {
             卡片
           </Link>
           <Link
-            href="/"
+            href="/heroes"
             className="btn-home bg-red border-red-dark hover:bg-red-dark"
           >
             英雄
