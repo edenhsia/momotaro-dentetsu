@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center">
+    <main className="min-h-view flex items-center">
       <div className="container">
         <div className="w-11 h-11 mx-auto md:w-16 md:h-16">
           <Image src="/logo.png" alt="peach logo" width={500} height={500} />

@@ -2,9 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .min-h-view {
+    @apply min-h-screen;
+  }
+
+  @supports (min-height: 100dvh) {
+    .min-h-view {
+      @apply min-h-dvh;
+    }
+  }
+}
+
 html,
 body {
-  @apply bg-background font-sans min-h-screen text-gray;
+  @apply bg-background font-sans min-h-view text-gray;
 }
 
 .btn-home {
