@@ -1,3 +1,4 @@
+import Footer from '@/components/footer'
 import './globals.css'
 
 export const metadata = {
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body className="min-h-view flex flex-col">
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
