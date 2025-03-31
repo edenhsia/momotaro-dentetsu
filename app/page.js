@@ -20,19 +20,19 @@ export default function Home() {
             href="/cards"
             className="btn-home bg-blue border-blue-dark hover:bg-blue-dark"
           >
-            卡片
+            買遍卡片
           </Link>
           <Link
             href="/heroes"
             className="btn-home bg-red border-red-dark hover:bg-red-dark"
           >
-            英雄
+            歷史英雄
           </Link>
           <Link
-            href="/"
+            href="/qa"
             className="btn-home bg-yellow border-yellow-dark hover:bg-yellow-dark"
           >
-            車站
+            窮神問答
           </Link>
           <Link
             href="/"

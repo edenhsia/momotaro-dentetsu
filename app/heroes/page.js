@@ -61,7 +61,7 @@ export default function HeroesPage() {
   return (
     <main className="py-12">
       <div className="container">
-        <PageTitle title="英雄" />
+        <PageTitle title="歷史英雄" />
         <form className="mb-7" onSubmit={handleFilter}>
           <SearchBar ref={inputKeyword} placeholder="請輸入英雄或是車站名稱" />
         </form>

@@ -83,7 +83,7 @@ export default function CardsPage() {
   return (
     <main className="py-12">
       <div className="container">
-        <PageTitle title="卡片" />
+        <PageTitle title="買遍卡片" />
         <CardsFilter onFilter={handleFilter} />
         {content}
       </div>
