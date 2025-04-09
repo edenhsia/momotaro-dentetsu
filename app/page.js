@@ -11,7 +11,7 @@ export default function Home() {
         <h1 className="text-center text-4xl text-primary font-black mb-6 md:text-6xl md:mb-10">
           桃太郎電鐵
           <small className="text-xl block md:text-2xl">
-            昭和平成令和也是定番！
+            ～ 昭和 平成 令和也是定番！～
           </small>
         </h1>
 
