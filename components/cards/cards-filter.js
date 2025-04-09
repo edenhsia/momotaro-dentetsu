@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { CARD_CATEGORIES, CARD_CATEGORIES_LABEL } from '@/libs/enum'
-import SearchBar from './search-bar'
+import SearchBar from '@/components/search-bar'
 
 export default function CardsFilter({ onFilter }) {
   const inputKeyword = useRef()

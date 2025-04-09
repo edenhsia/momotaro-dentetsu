@@ -1,7 +1,7 @@
 import PageTitle from '@/components/page-title'
-import IntroOverview from '@/components/intro-overview'
-import IntroAbout from '@/components/intro-about'
-import IntroInfo from '@/components/intro-info'
+import IntroOverview from '@/components/intro/intro-overview'
+import IntroAbout from '@/components/intro/intro-about'
+import IntroInfo from '@/components/intro/intro-info'
 
 export default function IntroPage() {
   return (

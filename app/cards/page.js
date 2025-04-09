@@ -1,13 +1,13 @@
 'use client'
 
-import Cards from '@/components/cards'
+import Cards from '@/components/cards/cards'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
 import PageTitle from '@/components/page-title'
 import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import Modal from '@/components/modal'
-import CardsFilter from '@/components/cards-filter'
+import CardsFilter from '@/components/cards/cards-filter'
 import { CARD_CATEGORIES } from '@/libs/enum'
 
 async function fetchCardsData() {

@@ -1,7 +1,7 @@
 'use client'
 
 import PageTitle from '@/components/page-title'
-import QAItem from '@/components/qa-item'
+import QAItem from '@/components/qa/qa-item'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
 import useSWR from 'swr'

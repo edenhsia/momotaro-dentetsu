@@ -1,7 +1,7 @@
 'use client'
 
 import PageTitle from '@/components/page-title'
-import Heroes from '@/components/heroes'
+import Heroes from '@/components/heroes/heroes'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
 import useSWR from 'swr'
