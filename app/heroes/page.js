@@ -4,8 +4,8 @@ import PageTitle from '@/components/page-title'
 import Heroes from '@/components/heroes/heroes'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
-import useSWR from 'swr'
-import { useState, useEffect, useRef } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { useRef, useState, useEffect } from 'react'
 import SearchBar from '@/components/search-bar'
 
 async function fetchHeroesData() {
@@ -22,8 +22,10 @@ async function fetchHeroesData() {
 
 export default function HeroesPage() {
   const inputKeyword = useRef()
-  const { data, error } = useSWR('heroes', fetchHeroesData, {
-    errorRetryCount: 3,
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['heroes'],
+    queryFn: fetchHeroesData,
+    retry: 3,
   })
 
   const [heroes, setHeroes] = useState([])
@@ -34,28 +36,29 @@ export default function HeroesPage() {
     }
   }, [data])
 
-  let content
-
-  if (error) {
-    content = <ErrorAlert message={error.message} />
-  } else if (!data) {
-    content = <Loading />
-  } else {
-    content = <Heroes items={heroes} />
-  }
-
   function handleFilter(e) {
     e.preventDefault()
     const keyword = inputKeyword.current.value.trim()
 
     if (!keyword) {
       setHeroes(data)
+      return
     }
 
     const filteredData = data.filter(
       (hero) => hero.name.includes(keyword) || hero.station.includes(keyword)
     )
     setHeroes(filteredData)
+  }
+
+  let content
+
+  if (error) {
+    content = <ErrorAlert message={error.message} />
+  } else if (isLoading || !data) {
+    content = <Loading />
+  } else {
+    content = <Heroes items={heroes} />
   }
 
   return (

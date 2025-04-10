@@ -4,11 +4,11 @@ import Cards from '@/components/cards/cards'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
 import PageTitle from '@/components/page-title'
-import { useState, useEffect } from 'react'
-import useSWR from 'swr'
+import { useEffect, useState } from 'react'
 import Modal from '@/components/modal'
 import CardsFilter from '@/components/cards/cards-filter'
 import { CARD_CATEGORIES } from '@/libs/enum'
+import { useQuery } from '@tanstack/react-query'
 
 async function fetchCardsData() {
   const response = await fetch(
@@ -23,17 +23,17 @@ async function fetchCardsData() {
 }
 
 export default function CardsPage() {
-  const { data, error } = useSWR('cards', fetchCardsData, {
-    errorRetryCount: 3,
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['cards'],
+    queryFn: fetchCardsData,
+    retry: 3,
   })
 
   const [cards, setCards] = useState([])
   const [cardInfo, setCardInfo] = useState()
 
   useEffect(() => {
-    if (data) {
-      setCards(data)
-    }
+    if (data) setCards(data)
   }, [data])
 
   function showCardInfo(id) {
@@ -48,16 +48,6 @@ export default function CardsPage() {
 
   function closeCardInfo() {
     setCardInfo(null)
-  }
-
-  let content
-
-  if (error) {
-    content = <ErrorAlert message={error.message} />
-  } else if (!data) {
-    content = <Loading />
-  } else {
-    content = <Cards items={cards} onCardClick={showCardInfo} />
   }
 
   function handleFilter(filter) {
@@ -78,6 +68,16 @@ export default function CardsPage() {
     })
 
     setCards(filteredData)
+  }
+
+  let content
+
+  if (error) {
+    content = <ErrorAlert message={error.message} />
+  } else if (isLoading || !data) {
+    content = <Loading />
+  } else {
+    content = <Cards items={cards} onCardClick={showCardInfo} />
   }
 
   return (

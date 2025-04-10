@@ -4,8 +4,7 @@ import PageTitle from '@/components/page-title'
 import QAItem from '@/components/qa/qa-item'
 import ErrorAlert from '@/components/error-alert'
 import Loading from '@/components/loading'
-import useSWR from 'swr'
-import { useState, useEffect } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 async function fetchQAsData() {
   const response = await fetch(
@@ -20,28 +19,22 @@ async function fetchQAsData() {
 }
 
 export default function QAPage() {
-  const { data, error } = useSWR('qa', fetchQAsData, {
-    errorRetryCount: 3,
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['qa'],
+    queryFn: fetchQAsData,
+    retry: 3,
   })
-
-  const [qa, setQA] = useState([])
-
-  useEffect(() => {
-    if (data) {
-      setQA(data)
-    }
-  }, [data])
 
   let content
 
   if (error) {
     content = <ErrorAlert message={error.message} />
-  } else if (!data) {
+  } else if (isLoading || !data) {
     content = <Loading />
   } else {
     content = (
       <ul className="space-y-6">
-        {qa.map((item) => (
+        {data.map((item) => (
           <li key={item.id}>
             <QAItem question={item.question} answer={item.answer} />
           </li>
