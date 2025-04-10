@@ -21,7 +21,8 @@ export default function IntroInfo() {
       </p>
       <p>
         本網站以 React + Next.js 開發，UI 採用 DaisyUI
-        製作。所有資料與功能皆由我個人設計與實作，並作為前端作品集的一部分持續維護中。
+        製作，資料請求與快取處理由 TanStack Query
+        管理。所有資料與功能皆由我個人設計與實作，並作為前端作品集的一部分持續維護中。
       </p>
       <p>
         ※
