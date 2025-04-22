@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 桃太郎電鐵卡片圖鑑
 
-## Getting Started
+## 專案簡介
 
-First, run the development server:
+為《桃太郎電鐵》玩家打造的卡片圖鑑網站，收錄卡片、歷史英雄、窮神問答，方便查找資料。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 功能特色
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 卡片搜尋、篩選與詳細資訊查看
+- 資料自 Excel 管理，Firebase 自動同步更新
+- 簡潔直覺的 UI，提升查找效率
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 使用技術
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js、daisyUI、Tanstack Query、Firebase、Excel
 
-## Learn More
+## 設計考量
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 自動化資料更新，輕鬆維護多樣卡片與問答內容
+- 高效資料抓取與快取，確保流暢體驗
+- 結合遊戲知識與數據，專為玩家設計的小工具
